@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import localFont from "next/font/local";
 import { SocketProvider } from "../contexts/SocketContext";
 import "./globals.css";
 
-const font_ = Archivo({
-  subsets: ['latin'],
-  display: 'swap',
-});
+const fl = localFont({ src: "../../public/Poppins-Regular.ttf" })
 
 export const metadata: Metadata = {
   title: "Talk2Me",
@@ -21,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="pt-Br">
       {/* <link rel="icon" href="/favicon.ico" /> */}
-      <body className={`${font_.className} bg-black text-white`} >
+      <body className={`${fl.className} bg-black text-white`} >
         <SocketProvider>
           {children}
 
