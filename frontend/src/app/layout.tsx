@@ -15,12 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-Br">
+      <link rel="icon" href="/favicon.ico" />
       <body className={inter.className}>
         {children}
       </body>
     </html>
   );
 }
-cor:#001258
-cor2:#2b2ceb
