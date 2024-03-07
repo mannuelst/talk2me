@@ -19,7 +19,8 @@ const config: Config = {
         'black': '#0f0f0f',
         'sec': '#001258',
         'pri': '#2b2ceb',
-        'gray-sec': '#212121'
+        'gray-sec': '#212121',
+        'gray-900': '#2c2c2c'
 
       }
     },
