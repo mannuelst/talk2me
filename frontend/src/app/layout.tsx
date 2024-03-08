@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 
-const font = Rubik({ subsets: ["latin"] });
+const font_ = Archivo({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Talk2Me",
@@ -16,8 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-Br">
-      <link rel="icon" href="/favicon.ico" />
-      <body className={`${font.className} bg-black text-white`} >
+      {/* <link rel="icon" href="/favicon.ico" /> */}
+      <body className={`${font_.className} bg-black text-white`} >
         {children}
       </body>
     </html >
