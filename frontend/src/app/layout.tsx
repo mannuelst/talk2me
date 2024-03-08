@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import { SocketProvider } from "../contexts/SocketContext";
 import "./globals.css";
 
 const font_ = Archivo({
@@ -21,7 +22,10 @@ export default function RootLayout({
     <html lang="pt-Br">
       {/* <link rel="icon" href="/favicon.ico" /> */}
       <body className={`${font_.className} bg-black text-white`} >
-        {children}
+        <SocketProvider>
+          {children}
+
+        </SocketProvider>
       </body>
     </html >
   );
