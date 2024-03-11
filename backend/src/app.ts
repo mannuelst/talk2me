@@ -26,8 +26,8 @@ class App {
 
     public listenSocket() {
         this.io.of('/streams').on('connection', this.socketEvents)
-
     }
+
     private socketEvents(socket: Socket) {
         console.log('socket connect: ' + socket.id)
         socket.on('subscribe', (data) => {
