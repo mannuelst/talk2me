@@ -29,7 +29,7 @@ class App {
     }
 
     private socketEvents(socket: Socket) {
-        console.log('socket connect: ' + socket.id)
+        console.log('socket connected: ' + socket.id)
         socket.on('subscribe', (data) => {
             console.log('usuário inserido na sala: ' + data.roomId)
             socket.join(data.roomId)

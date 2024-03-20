@@ -4,7 +4,7 @@ import { FormEvent, useContext, useEffect, useRef } from 'react';
 
 export default function Chat({ roomId }: { roomId: string }) {
     const currentMsg = useRef<HTMLInputElement>(null)
-    const [socket] = useContext(SocketContext)
+    const { socket } = useContext(SocketContext)
     useEffect(() => {
 
     }, [socket])

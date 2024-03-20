@@ -4,23 +4,19 @@ import Chat from "@/components/chat";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { useContext, useEffect } from "react";
-import { } from 'socket.io-client';
 import { SocketContext } from "../../../contexts/SocketContext";
 
 export default function Room({ params }: { params: { id: string } }) {
     const { socket } = useContext(SocketContext)
     useEffect(() => {
-        // Certifique-se de que socket não está vazio antes de tentar usar suas funções
-        if (socket) {
-            socket.on('connection', () => {
-                console.log('conectado');
-                socket.emit('subscribe', {
-                    roomId: params.id,
-                    socketId: socket.id
-                });
+        socket?.on('connection', () => {
+            console.log('conectado');
+            socket.emit('subscribe', {
+                roomId: params.id,
+                socketId: socket.id
             });
-        }
-    }, [socket, params.id]);
+        });
+    }, [socket]);
 
     return (
         <div className="h-screen">
