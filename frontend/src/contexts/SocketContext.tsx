@@ -11,7 +11,10 @@ export function SocketProvider({ children }: { children: ReactNode }) {
     const [socket, setSocket] = useState<Socket | null>(null)
 
     useEffect(() => {
-        const newSocket = io(`${process.env.NEXT_PUBLIC_API_URL}/streams`, { transports: ['websocket'] })
+        const newSocket = io(`${process.env.NEXT_PUBLIC_API_URL}/streams`,
+            {
+                transports: ['websocket']
+            })
         setSocket(newSocket)
     }, [])
     return (

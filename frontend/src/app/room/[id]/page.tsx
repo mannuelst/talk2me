@@ -9,9 +9,9 @@ import { SocketContext } from "../../../contexts/SocketContext";
 export default function Room({ params }: { params: { id: string } }) {
     const { socket } = useContext(SocketContext)
     useEffect(() => {
-        socket?.on('connection', () => {
+        socket?.on('connect', () => {
             console.log('conectado');
-            socket.emit('subscribe', {
+            socket?.emit('subscribe', {
                 roomId: params.id,
                 socketId: socket.id
             });
