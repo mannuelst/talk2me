@@ -17,7 +17,8 @@ export default function Join() {
             const roomId = id.current.value
 
             console.log(roomId)
-            route.push(`room/${roomId}`)
+            // route.push(`room/${roomId}`)
+            window.location.href = `/room/${roomId}`
         }
     }
 
