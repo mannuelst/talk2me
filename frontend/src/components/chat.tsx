@@ -26,9 +26,9 @@ export default function Chat({ roomId }: { roomId: string }) {
     function sendMsg(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
         console.log("Heyyy!", currentMsg)
-        if (currentMsg.current?.value !== '') {
+        if (currentMsg.current ?? currentMsg.current?.value !== '') {
             const sendMsgToServer = {
-                message: currentMsg.current?.value,
+                message: currentMsg.current.value,
                 username: 'Unkn User',
                 roomId,
                 time: new Date().toLocaleTimeString()
