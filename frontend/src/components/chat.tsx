@@ -34,13 +34,14 @@ export default function Chat({ roomId }: { roomId: string }) {
                 time: new Date().toLocaleTimeString()
             }
             socket?.emit('chat', sendMsgToServer)
+            setChat((prevState) => [...prevState, sendMsgToServer])
             currentMsg.current.value = ''
         }
 
     }
     return (
-        <div className=" bg-gray-900 px-4 pt-4 md:w-[15%] hidden md:flex rounded-md m-3 h-full">
-            <div className="relative h-full w-full">
+        <div className="relative min-h-[70vh] bg-gray-900 px-4 pt-4 md:w-[15%] hidden md:flex rounded-md m-3 h-full">
+            <div className=" h-full w-full">
                 {
                     chat.map((chat, index) => {
                         return (
@@ -58,7 +59,7 @@ export default function Chat({ roomId }: { roomId: string }) {
                         )
                     })
                 }
-                <form className="absolute bottom-2 w-full" onSubmit={(e) => sendMsg(e)}>
+                <form className="absolute bottom-4 w-full inset-x-0" onSubmit={(e) => sendMsg(e)}>
                     <div className="flex relative">
                         <input type="text" name="" id=""
                             className="px-3 py-2 bg-gray-950 rounded-md w-full"
