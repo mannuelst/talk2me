@@ -33,11 +33,15 @@ class App {
         socket.on('subscribe', (data) => {
             console.log('usuário inserido na sala: ' + data.roomId)
             socket.join(data.roomId)
-            socket.broadcast.to(data.roomId).emit('chat', {
-                message: data.message,
-                username: data.username,
-                time: data.time
+            socket.on('chat', (data) => {
+                console.log("Socket: ", data)
+                socket.broadcast.to(data.roomId).emit('chat', {
+                    message: data.message,
+                    username: data.username,
+                    time: data.time
+                })
             })
+
         })
     }
 }
