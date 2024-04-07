@@ -19,9 +19,14 @@ export default function Room({ params }: { params: { id: string } }) {
             });
             await initCamera()
         });
-        console.log('kkey!')
+        socket?.on('newUserStart', (data) => {
+            //novo usuário recebe notificção qndo estiver na sala!!!
+            console.log('Usuário conectado na sala: ', data)
+            createPeerConnection(data.sender)
+        })
+        // console.log('kkey!')
         socket?.on('new user', (data) => {
-            console.log('Novo usuário conectado:', data)
+            console.log('Novo usuário:', data)
             createPeerConnection(data.socketId)
             // console.log('peeer!')
             socket.emit('newUserStart', {

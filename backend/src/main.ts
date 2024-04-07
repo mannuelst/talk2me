@@ -1,4 +1,4 @@
-import { App } from './app'
+import { App } from './server'
 
 const app = new App()
 app.listenSocket()
